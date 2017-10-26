@@ -36,6 +36,10 @@ namespace TodoListService.Controllers
         static ConcurrentBag<TodoItem> todoBag = new ConcurrentBag<TodoItem>();
 
         // GET api/todolist
+        /// <summary>
+        /// Get a list of all todo items added previously
+        /// </summary>
+        /// <returns>list</returns>
         public IEnumerable<TodoItem> Get()
         {
             //
@@ -56,6 +60,10 @@ namespace TodoListService.Controllers
         }
 
         // POST api/todolist
+        /// <summary>
+        /// Adds a todo to the list
+        /// </summary>
+        /// <param name="todo">Item to add</param>
         public void Post(TodoItem todo)
         {
             if (ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/scope").Value != "user_impersonation")
